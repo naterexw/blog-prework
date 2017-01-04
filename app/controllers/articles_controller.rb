@@ -11,7 +11,7 @@ class ArticlesController < ApplicationController
       @articles = Article.search(params[:term])
     end
     @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
-    @nate = Article.find(1)
+    @nate = Article.find_by_id(1)
   end
 
   # GET /articles/1

@@ -10,8 +10,7 @@ class Article < ApplicationRecord
     if term
       where('title LIKE ?', "%#{term}%").where("id != ?", 1)
     else
-      # all.where("id != ?", 1)
-      all
+      all.where("id != ?", 1)
     end
   end
 end

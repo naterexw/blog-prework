@@ -20,10 +20,9 @@
     </div>
     <div class="col-sm-4">
       <div class="card">
-        <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
         <div class="card-block">
-          <h4 class="card-title"><%= @nate.title %></h4>
-          <p class="card-text"><%= @markdown.render(@nate.body).html_safe %></p>
+          <h4 class="card-title"><%#= @nate.try(:title) %></h4>
+          <p class="card-text"><%#= @markdown.render(@nate.try(:body)).html_safe %></p>
         </div>
       </div>
     </div>
