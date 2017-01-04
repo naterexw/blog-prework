@@ -1,0 +1,27 @@
+<% if (@articles) %>
+
+    <div class="card">
+      <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+      <div class="card-block">
+        <div class="float-xs-right text-muted">
+          Views: <%= article.impressionist_count %>
+        </div>
+        <h4 class="card-title"><%= link_to article.title, article_path(article) %></h4>
+        <p class="card-text"><%= @markdown.render(article.body).html_safe %></p>
+        <p>Tags: <%= article.tag_list.map { |tag| link_to tag, tag_path(tag) }.join(', ').html_safe %></p>
+
+      </div>
+      <ul class="list-group list-group-flush">
+        <%= render article.comments %>
+        <li class="list-group-item">
+          <%= render 'comments/form', article: article, comment: @comment %>
+        </li>
+      </ul>
+    </div>
+  <% else %>
+  <div class="card">
+    <div class="card-block">
+       <p>Use the search form to search for stuff.</p>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8">
+      <p id="notice"><%= notice %></p>
+      <div class="card">
+        <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+        <div class="card-block">
+          <div class="float-xs-right text-muted">Views: <%= @article.impressionist_count %></div>
+          <h4 class="card-title"><%= @article.title %></h4>
+          <p class="card-text"><%= @markdown.render(@article.body).html_safe %></p>
+          <p>Tags: <%= @article.tag_list.map { |tag| link_to tag, tag_path(tag) }.join(', ').html_safe %></p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <% @article.comments.each do |comment| %>
+          <li class="list-group-item">
+            <div class="actions float-xs-right ">
+              <%= link_to 'Delete comment', article_comment_path(@article, comment), method: :delete, data: {confirm: "Are you sure you want to delete this comment?"}, class: "btn btn-danger" %>
+            </div>
+            Comment: <%= comment.body %>
+            <div class="clearfix"></div>
+          </li>
+          <% end %>
+        </ul>
+        <div class="card-footer">
+          <%= link_to 'Edit Article', edit_article_path(@article), class: "btn btn-primary" %>
+          <%= link_to 'Delete Article', article_path(@article), method: :delete, data: {confirm: "Are you sure you want to delete this article?"}, class: "btn btn-danger" %>
+        </div>
+      </div>
+      <br>
+      <%= link_to 'Back', articles_path, class: "btn btn-secondary" %>
+    </div>
+  </div>
+</div>

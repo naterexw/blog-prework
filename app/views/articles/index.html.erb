@@ -1,0 +1,31 @@
+<div class="jumbotron">
+  <div class="container">
+    <%= form_tag (articles_path), method: :get, class: "form-inline" do %>
+      <%= link_to 'Create new Article', new_article_path, class: "btn btn-warning"  %>&nbsp;&nbsp;&nbsp;
+      <%= text_field_tag :term, params[:term], placeholder: "Enter term", class: "form-control" %>
+      <%= submit_tag 'Search article titles', class: "btn btn-success" %>
+    <% end %>
+    <!-- <form class="form-inline">
+      <input class="form-control" type="text" placeholder="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form> -->
+  </div>
+</div>
+
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  <div class="row">
+    <div class="col-sm-8">
+      <%= render @articles %>
+    </div>
+    <div class="col-sm-4">
+      <div class="card">
+        <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+        <div class="card-block">
+          <h4 class="card-title"><%= @nate.title %></h4>
+          <p class="card-text"><%= @markdown.render(@nate.body).html_safe %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

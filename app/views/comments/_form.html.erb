@@ -1,0 +1,9 @@
+<%= form_for [article, article.comments.build] do |f| %>
+    <div class="field">
+        <%= f.text_area :body, class:"form-control", required: true %>
+    </div>
+    <div class="actions float-xs-right ">
+        <%= f.submit "Submit comment", class:"btn btn-success" %>
+    </div>
+    <div class="clearfix"></div>
+<% end %>
