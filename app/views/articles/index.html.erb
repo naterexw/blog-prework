@@ -5,10 +5,6 @@
       <%= text_field_tag :term, params[:term], placeholder: "Enter term", class: "form-control" %>
       <%= submit_tag 'Search article titles', class: "btn btn-success" %>
     <% end %>
-    <!-- <form class="form-inline">
-      <input class="form-control" type="text" placeholder="Search">
-      <button class="btn btn-outline-success" type="submit">Search</button>
-    </form> -->
   </div>
 </div>
 
@@ -21,8 +17,8 @@
     <div class="col-sm-4">
       <div class="card">
         <div class="card-block">
-          <h4 class="card-title"><%#= @nate.try(:title) %></h4>
-          <p class="card-text"><%#= @markdown.render(@nate.try(:body)).html_safe %></p>
+          <h4 class="card-title"><%= @nate.try(:title) %></h4>
+          <p class="card-text"><%= @markdown.render(@nate.try(:body)).html_safe %></p>
         </div>
       </div>
     </div>
